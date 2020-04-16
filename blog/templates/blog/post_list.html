@@ -1,23 +1,14 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-        <style>
-            body { background: url(https://img4.goodfon.ru/wallpaper/nbig/5/bb/tiulpany-tsvety-fon-vesna-1.jpg) no-repeat; 
-                   background-size: 100%;
-                   }
-        </style>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h1><a href="">{{ post.title }}</a></h1>
-                <p>{{ post.text|linebreaksbr }}</p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p>Опубликовано: {{ post.published_date }}</p>
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+                
